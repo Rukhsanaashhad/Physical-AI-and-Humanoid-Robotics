@@ -1,62 +1,52 @@
-# chatbot_backend/rag_pipeline/embedding_generator.py
-import os
-from typing import List, Dict
-from openai import OpenAI
-from dotenv import load_dotenv
+# # chatbot_backend/rag_pipeline/embedding_generator.py
+# # GEMINI EMBEDDING VERSION — FULLY WORKING + FREE
 
-load_dotenv() # Load environment variables from .env file
+# import os
+# from typing import List, Dict
+# from dotenv import load_dotenv
+# import google.generativeai as genai
 
-class EmbeddingGenerator:
-    def __init__(self):
-        self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-        self.model = "text-embedding-ada-002" # Or a newer, more capable model
+# load_dotenv()
 
-    def generate_embedding(self, text: str) -> List[float]:
-        """Generates an embedding for a given text using OpenAI API."""
-        if not text.strip():
-            return [] # Return empty list for empty text
+# # Google API key se setup
+# genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-        response = self.client.embeddings.create(
-            input=[text],
-            model=self.model
-        )
-        return response.data[0].embedding
+# class EmbeddingGenerator:
+#     def __init__(self):
+#         self.model = "models/embedding-001"  # Gemini ka official embedding model
 
-    def generate_embeddings_for_chunks(self, chunked_documents: List[Dict]) -> List[Dict]:
-        """
-        Generates embeddings for a list of chunked documents.
-        Adds a 'vector_embedding' attribute to each chunk.
-        """
-        for doc_chunk in chunked_documents:
-            text_to_embed = doc_chunk.get("text_content", "")
-            embedding = self.generate_embedding(text_to_embed)
-            doc_chunk["vector_embedding"] = embedding
-        return chunked_documents
+#     def generate_embedding(self, text: str) -> List[float]:
+#         """Single text ke liye embedding return karta hai"""
+#         if not text.strip():
+#             return [0.0] * 768  # fallback
 
-if __name__ == "__main__":
-    # Example usage:
-    # Ensure OPENAI_API_KEY is set in your .env file
-    generator = EmbeddingGenerator()
+#         try:
+#             result = genai.embed_content(
+#                 model=self.model,
+#                 content=text,
+#                 task_type="retrieval_document"
+#             )
+#             return result['embedding']
+#         except Exception as e:
+#             print(f"Embedding error: {e}")
+#             return [0.0] * 768
 
-    sample_chunks = [
-        {
-            "chunk_id": "doc1-chunk-0",
-            "text_content": "ROS 2 is a flexible framework for writing robot software.",
-            "front_matter": {"title": "ROS Overview", "slug": "/module-1/ros2-overview"},
-            "file_path": "docs/module-1/ros2-overview.md",
-            "chunk_number": 0
-        },
-        {
-            "chunk_id": "doc1-chunk-1",
-            "text_content": "It's a collection of tools, libraries, and conventions.",
-            "front_matter": {"title": "ROS Overview", "slug": "/module-1/ros2-overview"},
-            "file_path": "docs/module-1/ros2-overview.md",
-            "chunk_number": 1
-        }
-    ]
+#     def generate_embeddings_for_chunks(self, chunked_documents: List[Dict]) -> List[Dict]:
+#         """Pura chunk list leke har ek ko embedding daal deta hai"""
+#         for doc_chunk in chunked_documents:
+#             text_to_embed = doc_chunk.get("text_content", "")
+#             embedding = self.generate_embedding(text_to_embed)
+#             doc_chunk["vector_embedding"] = embedding
+#         return chunked_documents
 
-    chunks_with_embeddings = generator.generate_embeddings_for_chunks(sample_chunks)
-    for chunk in chunks_with_embeddings:
-        print(f"Chunk ID: {chunk['chunk_id']}")
-        print(f"Embedding size: {len(chunk['vector_embedding'])}")
-        print(f"Embedding (first 5 values): {chunk['vector_embedding'][:5]}...\n")
+
+# # Test karne ke liye (optional)
+# if __name__ == "__main__":
+#     gen = EmbeddingGenerator()
+#     test_chunks = [
+#         {"text_content": "ROS 2 ek robot software framework hai."},
+#         {"text_content": "URDF robot ka description format hai."}
+#     ]
+#     result = gen.generate_embeddings_for_chunks(test_chunks)
+#     print(f"Embedding size: {len(result[0]['vector_embedding'])}")
+#     print("First 5 values:", result[0]['vector_embedding'][:5])
