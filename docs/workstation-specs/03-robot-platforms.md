@@ -1,7 +1,7 @@
 ---
 title: Robot Platforms
 description: Overview of various robot hardware platforms for humanoid robotics.
-slug: /05-hardware/03-robot-platforms
+slug: /workstation-specs/03-robot-platforms
 ---
 
 # Robot Platforms

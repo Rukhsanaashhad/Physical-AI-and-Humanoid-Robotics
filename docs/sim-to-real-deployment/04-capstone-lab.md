@@ -1,7 +1,7 @@
 ---
 title: Capstone Project Lab
 description: Practical lab exercises and activities for the capstone project.
-slug: /06-capstone/04-capstone-lab
+slug: /sim-to-real-deployment/04-capstone-lab
 ---
 
 # Capstone Project Lab

@@ -1,7 +1,7 @@
 ---
 title: Jetson Deployment
 description: Guide to deploying robotics applications on NVIDIA Jetson platforms.
-slug: /05-hardware/jetson-deployment
+slug: /workstation-specs/02-jetson
 ---
 
 # Deploying to NVIDIA Jetson Platforms

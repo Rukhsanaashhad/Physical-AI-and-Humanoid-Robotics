@@ -1,7 +1,7 @@
 ---
 title: Workstation Specifications
 description: Recommended workstation specifications for robotics development.
-slug: /05-hardware/workstation-specs
+slug: /workstation-specs/01-workstation
 ---
 
 # Recommended Workstation Specifications

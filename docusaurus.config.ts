@@ -1,35 +1,35 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
   title: 'Physical AI and Humanoid Robotics',
   tagline: 'Documentation for the Physical AI and Humanoid Robotics Course',
   favicon: 'img/favicon.ico',
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true,
   },
 
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  // GitHub Pages URL
+  url: 'https://rukhsanaashhad.github.io', // ✅ No space or @
+  baseUrl: '/Physical-AI-and-Humanoid-Robotics/',
+  trailingSlash: false, // Recommended for GitHub Pages
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'robotics-course', // Usually your GitHub org/user name.
-  projectName: 'robotics-docs', // Usually your repo name.
+  // GitHub deployment config
+  organizationName: 'Rukhsanaashhad', // Your GitHub username
+  projectName: 'Physical-AI-and-Humanoid-Robotics', // Your repo name
+  deploymentBranch: 'gh-pages', // Branch for deployment
 
   onBrokenLinks: 'throw',
+  markdown: {
+    mermaid: true,
+    format: 'mdx',
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -41,19 +41,9 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-
         },
         blog: {
           showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -63,7 +53,6 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
@@ -121,7 +110,7 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/Rukhsanaashhad/Physical-AI-and-Humanoid-Robotics',
             },
           ],
         },

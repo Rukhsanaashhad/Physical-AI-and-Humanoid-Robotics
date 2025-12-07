@@ -1,7 +1,7 @@
 ---
 title: From Sim-to-Real Deployment
 description: Strategies and challenges in deploying simulated robotics to real hardware.
-slug: /06-capstone/sim-to-real-deployment
+slug: /sim-to-real-deployment/03-deployment-notes
 ---
 
 # From Simulation to Real-World Deployment

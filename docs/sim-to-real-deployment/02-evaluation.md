@@ -1,7 +1,7 @@
 ---
 title: Capstone Project Evaluation
 description: Metrics and methods for evaluating humanoid robotics capstone projects.
-slug: /06-capstone/02-evaluation
+slug: /sim-to-real-deployment/02-evaluation
 ---
 
 # Capstone Project Evaluation

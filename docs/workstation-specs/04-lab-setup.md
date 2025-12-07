@@ -1,7 +1,7 @@
 ---
 title: Lab Setup Guidelines
 description: Best practices for setting up a robotics lab environment.
-slug: /05-hardware/04-lab-setup
+slug: /workstation-specs/04-lab-setup
 ---
 
 # Lab Setup Guidelines

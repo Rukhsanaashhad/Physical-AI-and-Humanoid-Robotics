@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Physical AI and Humanoid Robotics Documentation
 
 This repository hosts the official documentation for the Physical AI and Humanoid Robotics course, built using [Docusaurus](https://docusaurus.io/). This documentation aims to provide a comprehensive and interactive learning experience, integrating 3D visualizations, ROS 2 code examples, and interactive quizzes.
@@ -66,3 +67,7 @@ We welcome contributions to improve this documentation!
 6.  Submit a pull request with a clear description of your changes.
 
 Thank you for helping us enhance the learning experience!
+=======
+# Physical-AI-and-Humanoid-Robotics
+Interactive Spacekit Book with live AI Assistant (RAG) | Docusaurus + FastAPI | 
+>>>>>>> 44e4cc91b4538eab650318c3c407d1b7aed11f85

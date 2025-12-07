@@ -1,7 +1,7 @@
 ---
 title: Capstone Project Architecture
 description: Overview of a typical capstone project architecture for humanoid robotics.
-slug: /06-capstone/01-architecture
+slug: /sim-to-real-deployment/01-architecture
 ---
 
 # Capstone Project Architecture
