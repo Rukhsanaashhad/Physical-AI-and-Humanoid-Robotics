@@ -1,0 +1,59 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modules {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+  text-align: center;
+}
+
+.moduleBlock {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* Make cards stretch to same height */
+}
+
+.moduleBlock .card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Ensure card takes full height of its block */
+}
+
+.moduleBlock .card__header h3 {
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.moduleBlock .card__body {
+  flex-grow: 1; /* Allow body to take available space */
+}
+
+.moduleBlock .card__footer {
+  margin-top: auto; /* Push footer to the bottom */
+}

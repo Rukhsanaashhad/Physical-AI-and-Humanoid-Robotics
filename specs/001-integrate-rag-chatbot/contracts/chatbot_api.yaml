@@ -1,0 +1,56 @@
+openapi: 3.0.0
+info:
+  title: RAG Chatbot API
+  version: 1.0.0
+  description: API for the Retrieval-Augmented Generation (RAG) chatbot, integrated with the Physical AI Book.
+servers:
+  - url: http://localhost:8000
+    description: Development server
+
+paths:
+  /chat:
+    post:
+      summary: Get a response from the RAG chatbot
+      operationId: chatWithRag
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  description: The user's query for the chatbot.
+                  example: "What is ROS 2?"
+                selected_text:
+                  type: string
+                  nullable: true
+                  description: Optional. A selected text snippet from the book to constrain the answer.
+                  example: "ROS 2 is a flexible framework for writing robot software."
+              required:
+                - query
+      responses:
+        '200':
+          description: Chatbot response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: string
+                    description: The generated natural language response from the chatbot.
+                    example: "ROS 2 is a flexible framework for writing robot software, designed to simplify complex robot behaviors."
+                  citation:
+                    type: string
+                    description: Citation to the book content used for the response.
+                    example: "Source: Module 1, Chapter: ROS 2 Overview"
+                  conversation_id:
+                    type: string
+                    description: ID of the current conversation (for history).
+                    example: "conv-12345"
+        '400':
+          description: Invalid request
+        '500':
+          description: Internal server error
